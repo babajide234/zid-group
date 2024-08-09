@@ -15,11 +15,11 @@ jobs:
 
       - name: 🔨 Build Project
         run: |
-          npm install
-          npm run build
+          yarn
+          yarn build
 
       - name: List output files
-        run: find build/ -print
+        run: find dist/ -print
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -27,5 +27,5 @@ jobs:
           server: ftp.zidgroup.ng
           username: zidgroup
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: build/
+          local-dir: dist/
           server-dir: public_html/
